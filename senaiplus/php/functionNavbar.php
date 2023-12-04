@@ -1,27 +1,55 @@
 <?php
-    //retornar listagem de gêneros
-    function listaGeneros(){
-        $lista = "<ul class='dropdown-menu' aria-labelledby='navbarDropdown'>";
-                   
-        include('conexao.php');
-        $sql = "Select descGenero from generos;";
 
-        $result = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-
-        if(mysqli_num_rows($result) > 0){
-            $array = array();
-
-            while($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                array_push($array, $linha);
-            }
-            
-            foreach($array as $campo){
-                $lista .= "<li><a class='dropdown-item' href='#!'>".$campo['descGenero']."</a></li>" ;              
-            }
-            
-        }
-        $lista .= "</ul>";
-        return $lista;   
+function navbar(){
+        
+        $navbar= "<nav class='navbar navbar-expand-lg  bg-senaiplus' style=''>"
+                    ."<div class='container px-4 px-lg-5'>"
+                    
+                        ."<a class='navbar-brand' href='http://localhost/senaiplus/index.php?s=&p=2'>SENAI+</a>"
+                        ."<button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigatio'><span class='navbar-toggler-icon'></span></button>"
+                        ."<div class='collapse navbar-collapse' id='navbarSupportedContent'>"
+                            ."<ul class='navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4'>"
+                                ."<li class='nav-item dropdown'>"
+                                    ."<a class='nav-link dropdown-toggle' id='navbarDropdown' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Início</a>"
+                                    ."<ul class='dropdown-menu' aria-labelledby='navbarDropdown'>"
+                                        ."<form method='POST' class='d-flex' action= 'php/functionSearchHome.php' >"
+                                            ."<button class='dropdown-item' type='submit' id='iHome' name='nHome'  value='Home'>"
+                                                ."Início"
+                                            ."</button>"
+                                        ."</form>"
+                                        ."<form method='POST' class='d-flex' action= 'php/functionSearchFilmes.php' >"
+                                            ."<button class='dropdown-item' type='submit' id='iFilmes' name='nFilmes'  value='Filmes'>"
+                                                ."Filmes"
+                                            ."</button>"
+                                        ."</form>"
+                                        ."<form method='POST' class='d-flex' action= 'php/functionSearchSeries.php' >"
+                                            ."<button class='dropdown-item' type='submit' id='iSeries' name='nSeries'  value='Series'>"
+                                                ."Séries"
+                                            ."</button>"
+                                        ."</form>"
+                                    ."</ul>"    
+                                ."</li>"
+                                ."<li class='nav-item dropdown'>"
+                                    ."<a class='nav-link dropdown-toggle' id='navbarDropdown' href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>Gêneros</a>"
+                                    .listaGeneros()
+                                ."</li>"
+                                ."<li class='nav-item'><a class='nav-link' href='#!'>Minha lista</a></li>"
+                            ."</ul>"
+                            ."<form method='POST' class='d-flex' action= 'php/functionSearch.php' >"
+                                ."<input type='text' class='form-control' placeholder='Pesquisa' aria-describedby='PesquisaFilme' id='iSearch' name='nSearch' ></input>"
+                                ."<button class='btn-pesquisa' type='submit' id='iPesquisaForm' >"
+                                    ."<i class='bi-search me-1'></i>"
+                                ."</button>"
+                            ."</form>"
+                            ."<form class='d-flex' >"
+                                ."<button class='btn btn-outline-light' type='submit'>"
+                                    ."<i class='bi-person me-1'></i>"
+                                    ."Login"
+                                    ."<span class='badge bg-dark text-white ms-1 rounded-pill'></span>"
+                                ."</button>"
+                            ."</form>"
+                        ."</div>"
+                    ."</div>"
+                ."</nav>";
+        return($navbar);    
     }
-
