@@ -1,56 +1,62 @@
 <?php
+    //retornar listagem de classificação indicativa 
+    function listaClassificacao($tipoStream){
 
-function classificacao($idclassificacao){
-        include('conexao.php');
+        if($tipoStream == 'f') {
 
-        $sql = "Select descClassificacao from classificacao
-                where idClassificacao = ".$idclassificacao.";";
-        
-            
-        
-        $result = mysqli_query($conn, $sql);
-        mysqli_close($conn);
-        $vezes = 0;
-        $positivo = 0;
+            $lista = "<select class='form-select' name='nClassificacaoFilme' aria-label='Default select example'>"
+                        ."<option selected disabled>Selecione...</option>";
 
-        if(mysqli_num_rows($result) > 0){
-            $array = array();
+            include('conexao.php');
+            $sql = "Select * from classificacao;";
 
-            while($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                array_push($array, $linha);
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+
+            if(mysqli_num_rows($result) > 0){
+                $array = array();
+
+                while($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    array_push($array, $linha);
+                }
+                
+                foreach($array as $campo){
+                    $lista .= "<option value=".$campo['idClassificacao'].">".$campo['descClassificacao']."</option>" ;
+                    
+                }
+                
             }
             
+            $lista .= "</select>";
 
-            foreach($array as $campo){
-                $classificacao = $campo['descClassificacao'];            
-            }
+        }else if($tipoStream == 's'){
 
-            switch($classificacao){
-                case 'L':
-                    $result = "<div class='badge bg-green text-white ' style='bottom: 0rem; left: 0.1rem'><b>".$classificacao."</b></div>";
-                    break;
-                case 10:
-                    $result = "<div class='badge bg-blue text-white ' style='bottom: 0rem; left: 0.1rem'><b>".$classificacao."</b></div>";
-                    break;
-                case 12:
-                    $result = "<div class='badge bg-yellow text-white ' style='bottom: 0rem; left: 0.1rem'><b>".$classificacao."</b></div>";
-                    break; 
-                case 14:
-                    $result = "<div class='badge bg-orange text-white ' style='bottom: 0rem; left: 0.1rem'><b> ".$classificacao."</b></div>";
-                    break;
-                case 16:
-                    $result = "<div class='badge bg-red text-white ' style='bottom: 0rem; left: 0.1rem'><b>".$classificacao."</b></div>";
-                    break;
-                case 18:
-                    $result = "<div class='badge bg-black1 text-white ' style='bottom: 0rem; left: 0.1rem'><b>".$classificacao."</b></div>";
-                    break;           
+            $lista = "<select class='form-select' name='nClassificacaoSerie' aria-label='Default select example'>"
+                        ."<option selected disabled>Selecione...</option>";
+
+            include('conexao.php');
+            $sql = "Select * from classificacao;";
+
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);
+
+            if(mysqli_num_rows($result) > 0){
+                $array = array();
+
+                while($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                    array_push($array, $linha);
+                }
+                
+                foreach($array as $campo){
+                    $lista .= "<option>".$campo['descClassificacao']."</option>" ;
+                    
+                }
+                
             }
             
-            
+            $lista .= "</select>";
+
         }
-        return $result;
 
-}
-
-
-?>
+        return $lista;   
+    }
