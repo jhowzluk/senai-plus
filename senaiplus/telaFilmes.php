@@ -32,6 +32,7 @@
         max-height: calc(100vh - 200px); /* Ajuste a altura conforme necessário */
         overflow-y: auto;
     }
+    
 </style>
 <body class="hold-transition sidebar-mini layout-fixed">
     <!-- Main content -->
