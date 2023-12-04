@@ -36,8 +36,9 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="telaFilmes.php">Filmes</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cadastrarSerie">Séries</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#cadastrarEpisodio">Episódios</a></li>
+                                <li><a class="dropdown-item" href="telaSeries.php">Séries</a></li>
+                                <li><a class="dropdown-item" href="telaEpisodios.php">Episódios</a></li>
+                                <li><a class="dropdown-item" href="telaEpisodios.php">Usuários</a></li>
                             </ul>
                         </li>
                     </ul>
