@@ -46,12 +46,12 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <h3 class="card-title text-orange"><b>Filmes</b></h3>
+                                    <h3 class="card-title text-orange"><b>Episódios</b></h3>
                                 </div>
                                 <div class="col-md-3" align="right">
-                                    <a href="usuario" class="btn btn-success" data-toggle="modal" data-target="#cadastrarFilme" title="Inserir um novo usuário">
+                                    <a href="usuario" class="btn btn-success" data-toggle="modal" data-target="#cadastrarEpisodio" title="Inserir um novo usuário">
                                         <i class="fas fa-plus-circle"></i>
-                                        <span>Novo Filme</span>
+                                        <span>Novo Episódio</span>
                                     </a>
                                 </div>
                             </div>
@@ -63,15 +63,16 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>   
-                                    <th>Lançamento</th>
+                                    <th>Série</th>
+                                    <th>Episódio</th>
+                                    <th>Temporada</th>
                                     <th>Duração</th>
-                                    <th>Estúdio</th>
-                                    <th>Diretor</th>
+                                    <th>Lançamento</th>
                                     <th>Ações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php echo carregaFilmes(); ?>
+                                    <?php echo carregaEpisodios(); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -80,57 +81,57 @@
                 </div>
             </div>
 
-            <!-- Modal para cadastrar Filmes -->
-            <div class="modal fade" id="cadastrarFilme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal para cadastrar Episodios -->
+            <div class="modal fade" id="cadastrarEpisodio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header bg-info">
-                            <h4 class="modal-title" id="exampleModalLabel">Cadastrar Filme</h4>
+                            <h4 class="modal-title" id="exampleModalLabel">Cadastrar Episodio</h4>
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form method="POST" action="php/salvaFilme.php?id=0" enctype="multipart/form-data">
+                        <form method="POST" action="php/salvaEpisodio.php?id=0" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="iNomeFilme" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" name="nNomeFilme" id="iNomeFilme">
+                                    <label for="iNomeEpisodio" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" name="nNomeEpisodio" id="iNomeEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iVideoFilme" class="form-label">Vídeo do filme</label>
-                                    <input class="form-control" type="file" name="nVideoFilme" id="iVideoFilme" accept="video/*">
+                                    <label for="iVideoEpisodio" class="form-label">Vídeo do filme</label>
+                                    <input class="form-control" type="file" name="nVideoEpisodio" id="iVideoEpisodio" accept="video/*">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iCapaFilme" class="form-label">Imagem da capa</label>
-                                    <input class="form-control" type="file" name="nCapaFilme" id="iCapaFilme" accept="image/*">
+                                    <label for="iCapaEpisodio" class="form-label">Imagem da capa</label>
+                                    <input class="form-control" type="file" name="nCapaEpisodio" id="iCapaEpisodio" accept="image/*">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iCarouselFilme" class="form-label">Imagem do carousel</label>
-                                    <input class="form-control" type="file" name="nCarouselFilme" id="iCarouselFilme" accept="image/*">
+                                    <label for="iCarouselEpisodio" class="form-label">Imagem do carousel</label>
+                                    <input class="form-control" type="file" name="nCarouselEpisodio" id="iCarouselEpisodio" accept="image/*">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iSinopseFilme" class="form-label">Sinopse</label>
-                                    <textarea class="form-control" name="nSinopseFilme" id="iSinopseFilme" rows="3"></textarea>
+                                    <label for="iSinopseEpisodio" class="form-label">Sinopse</label>
+                                    <textarea class="form-control" name="nSinopseEpisodio" id="iSinopseEpisodio" rows="3"></textarea>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iLancamentoFilme" class="form-label">Data de lançamento</label>
-                                    <input type="date" class="form-control" name="nLancamentoFilme" id="iLancamentoFilme">
+                                    <label for="iLancamentoEpisodio" class="form-label">Data de lançamento</label>
+                                    <input type="date" class="form-control" name="nLancamentoEpisodio" id="iLancamentoEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iTempoFilme" class="form-label">Duração</label>
-                                    <input type="time" class="form-control" name="nTempoFilme" id="iTempoFilme">
+                                    <label for="iTempoEpisodio" class="form-label">Duração</label>
+                                    <input type="time" class="form-control" name="nTempoEpisodio" id="iTempoEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iEstudioFilme" class="form-label">Estúdio</label>
-                                    <input type="text" class="form-control" name="nEstudioFilme" id="iEstudioFilme">
+                                    <label for="iEstudioEpisodio" class="form-label">Estúdio</label>
+                                    <input type="text" class="form-control" name="nEstudioEpisodio" id="iEstudioEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iDiretorFilme" class="form-label">Diretor</label>
-                                    <input type="text" class="form-control" name="nDiretorFilme" id="iDiretorFilme">
+                                    <label for="iDiretorEpisodio" class="form-label">Diretor</label>
+                                    <input type="text" class="form-control" name="nDiretorEpisodio" id="iDiretorEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iElencoFilme" class="form-label">Elenco</label>
-                                    <textarea class="form-control" name="nElencoFilme" id="iElencoFilme" rows="3"></textarea>
+                                    <label for="iElencoEpisodio" class="form-label">Elenco</label>
+                                    <textarea class="form-control" name="nElencoEpisodio" id="iElencoEpisodio" rows="3"></textarea>
                                 </div>
                                 <br>
                                 <div class="mb-3">
@@ -199,7 +200,7 @@
                             </div>
                     
                             <div class="modal-footer">
-                                <a href="telaFilmes.php" class="btn btn-danger" title="Cancelar a operação">
+                                <a href="telaEpisodios.php" class="btn btn-danger" title="Cancelar a operação">
                                     <span>Cancelar</span>
                                 </a>
                                 <input type="submit" class="btn btn-success" value="Salvar" title="Salvar alteração">
