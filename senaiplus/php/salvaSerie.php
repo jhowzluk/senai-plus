@@ -78,42 +78,7 @@
 
 
     mysqli_close($conn);
-
-
-    //video
-    if($_FILES['nVideoSerie']['tmp_name'] != ""){
-
-        //Usar o mesmo nome do arquivo original
-        //$nomeArq = $_FILES['Foto']['name'];
-        //...
-        //OU
-        //Pega a extensão do arquivo e cria um novo nome pra ele (MD5 do nome original)
-        $extensao = pathinfo($_FILES['nVideoSerie']['name'], PATHINFO_EXTENSION);
-        $novoNome = md5($_FILES['nVideoSerie']['name']).'.'.$extensao;        
-        
-        //Verificar se o diretório existe, ou criar a pasta
-        if(is_dir('../video/serie/'.$id.'/')){
-            //Existe
-            $diretorio = '../video/serie/'.$id.'/';
-        }else{
-            //Criar pq não existe
-            $diretorio = mkdir('../video/serie/'.$id.'/');
-        }
-
-        //Cria uma cópia do arquivo local na pasta do projeto
-        move_uploaded_file($_FILES['nVideoSerie']['tmp_name'], '../video/serie/'.$id.'/'.$novoNome);
-
-        //Caminho que será salvo no banco de dados
-        $dirVideo = 'video/serie/'.$id.'/'.$novoNome;
-
-        include("conexao.php");
-        //UPDATE
-        $sql = "UPDATE series "
-                ." SET video = '$dirVideo' "
-                ." WHERE idSerie = $id;";
-        $result = mysqli_query($conn,$sql);
-        mysqli_close($conn);
-    }
+    
 
      //imagem capa 
      if($_FILES['nCapaSerie']['tmp_name'] != ""){
