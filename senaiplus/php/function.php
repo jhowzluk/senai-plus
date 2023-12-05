@@ -5,6 +5,7 @@
     include ('functionClassificacao.php');
     include ('functionSerie.php');
     include ('functionCrudFilme.php');
+    include ('functionCrudSerie.php');
 
     function proximoIdTabela($tabela, $coluna){
 

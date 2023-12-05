@@ -48,7 +48,7 @@
                 }
                 
                 foreach($array as $campo){
-                    $lista .= "<option>".$campo['descClassificacao']."</option>" ;
+                    $lista .= "<option value=".$campo['idClassificacao'].">".$campo['descClassificacao']."</option>" ;
                     
                 }
                 

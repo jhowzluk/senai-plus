@@ -43,6 +43,9 @@
             ."'".$elencoFilme."', "
             ."'".$classificacaoFilme."');";
 
+        var_dump($sql1);
+        die();
+
         $result = mysqli_query($conn,$sql1);    
 
         for ($c = 1; $c < 14; $c++) {

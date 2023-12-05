@@ -43,55 +43,6 @@
                         </li>
                     </ul>
 
-                    <!-- Modal para cadastrar Series -->
-                    <div class="modal fade" id="cadastrarSerie" tabindex="-1" aria-labelledby="" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Cadastrar Séries</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="POST" action="php/salvaSerie.php">
-                                        <div class="mb-3">
-                                            <label for="nomeSerie" class="form-label">Nome</label>
-                                            <input type="text" class="form-control" id="nomeSerie">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="capaSerie" class="form-label">Imagem da capa</label>
-                                            <input class="form-control" type="file" id="capaSerie">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="capaSerie" class="form-label">Imagem do carousel</label>
-                                            <input class="form-control" type="file" id="capaSerie">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="sinopseSerie" class="form-label">Sinopse</label>
-                                            <textarea class="form-control" id="sinopseSerie" rows="3"></textarea>
-                                        </div>    
-                                        <div class="mb-3">
-                                            <label for="lancamentoSerie" class="form-label">Data de lançamento</label>
-                                            <input type="date" class="form-control" id="lancamentoSerie">          
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="estudioSerie" class="form-label">Estúdio</label>
-                                            <input type="text" class="form-control" id="estudioSerie">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Classificação indicativa</label>
-                                            <?php echo listaClassificacao('s'); ?>
-                                        </div> 
-                                </div>
-                                <div class="modal-footer">
-                                    <span class="limparButton"><button type="reset" class="btn btn-secondary">Limpar</button></span>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Modal para cadastrar Episódios -->
                     <div class="modal fade" id="cadastrarEpisodio" tabindex="-1" aria-labelledby="" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable">
