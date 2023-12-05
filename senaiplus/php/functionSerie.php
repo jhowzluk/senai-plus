@@ -2,7 +2,7 @@
     //retornar listagem de series
     function listaSerie(){
 
-        $lista = "<select class='form-select' aria-label='Default select example'>"
+        $lista = "<select class='form-select' name='nSerieEpisodio' aria-label='Default select example'>"
                     ."<option selected disabled>Selecione...</option>";
 
         include('conexao.php');
@@ -19,7 +19,7 @@
             }
             
             foreach($array as $campo){
-                $lista .= "<option>".$campo['nome']."</option>" ;
+                $lista .= "<option value=".$campo['idSerie'].">".$campo['nome']."</option>" ;
                 
             }
             

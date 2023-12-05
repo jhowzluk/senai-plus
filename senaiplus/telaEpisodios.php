@@ -64,8 +64,8 @@
                                     <th>ID</th>
                                     <th>Nome</th>   
                                     <th>Série</th>
-                                    <th>Episódio</th>
-                                    <th>Temporada</th>
+                                    <th>N° Episódio</th>
+                                    <th>N° Temporada</th>
                                     <th>Duração</th>
                                     <th>Lançamento</th>
                                     <th>Ações</th>
@@ -93,21 +93,21 @@
                         </div>
                         <form method="POST" action="php/salvaEpisodio.php?id=0" enctype="multipart/form-data">
                             <div class="modal-body">
-                                <div class="mb-3">
+                            <div class="mb-3">
                                     <label for="iNomeEpisodio" class="form-label">Nome</label>
                                     <input type="text" class="form-control" name="nNomeEpisodio" id="iNomeEpisodio">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="iVideoEpisodio" class="form-label">Vídeo do filme</label>
+                                    <label for="iTemporadaEpisodio" class="form-label">N° Temporada</label>
+                                    <input class="form-control" type="number" name="nTemporadaEpisodio" id="iTemporadaEpisodio">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="iNumeroEpisodio" class="form-label">N° Episódio</label>
+                                    <input class="form-control" type="number" name="nNumeroEpisodio" id="iNumeroEpisodio">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="iVideoEpisodio" class="form-label">Vídeo do episódio</label>
                                     <input class="form-control" type="file" name="nVideoEpisodio" id="iVideoEpisodio" accept="video/*">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="iCapaEpisodio" class="form-label">Imagem da capa</label>
-                                    <input class="form-control" type="file" name="nCapaEpisodio" id="iCapaEpisodio" accept="image/*">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="iCarouselEpisodio" class="form-label">Imagem do carousel</label>
-                                    <input class="form-control" type="file" name="nCarouselEpisodio" id="iCarouselEpisodio" accept="image/*">
                                 </div>
                                 <div class="mb-3">
                                     <label for="iSinopseEpisodio" class="form-label">Sinopse</label>
@@ -117,13 +117,15 @@
                                     <label for="iLancamentoEpisodio" class="form-label">Data de lançamento</label>
                                     <input type="date" class="form-control" name="nLancamentoEpisodio" id="iLancamentoEpisodio">
                                 </div>
+                                <br>
+                                <div class="mb-3">
+                                    <label class="form-label">Série:&nbsp;&nbsp;</label>
+                                    <?php echo listaSerie(); ?>
+                                </div>
+                                <br>
                                 <div class="mb-3">
                                     <label for="iTempoEpisodio" class="form-label">Duração</label>
                                     <input type="time" class="form-control" name="nTempoEpisodio" id="iTempoEpisodio">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="iEstudioEpisodio" class="form-label">Estúdio</label>
-                                    <input type="text" class="form-control" name="nEstudioEpisodio" id="iEstudioEpisodio">
                                 </div>
                                 <div class="mb-3">
                                     <label for="iDiretorEpisodio" class="form-label">Diretor</label>
@@ -132,71 +134,7 @@
                                 <div class="mb-3">
                                     <label for="iElencoEpisodio" class="form-label">Elenco</label>
                                     <textarea class="form-control" name="nElencoEpisodio" id="iElencoEpisodio" rows="3"></textarea>
-                                </div>
-                                <br>
-                                <div class="mb-3">
-                                    <label class="form-label">Classificação indicativa:&nbsp;&nbsp;</label>
-                                    <?php echo listaClassificacao('f'); ?>
-                                </div>
-                                <br>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero1" id="iGenero1">
-                                            <label for="iGenero1" class="form-label">&nbsp;Ação</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero2" id="iGenero2">
-                                            <label for="iGenero2" class="form-label">&nbsp;Aventura</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero3" id="iGenero3">
-                                            <label for="iGenero3" class="form-label">&nbsp;Anime</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero4" id="iGenero4">
-                                            <label for="iGenero4" class="form-label">&nbsp;Comédia</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero5" id="iGenero5">
-                                            <label for="iGenero5" class="form-label">&nbsp;Documentário</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero6" id="iGenero6">
-                                            <label for="iGenero6" class="form-label">&nbsp;Drama</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero7" id="iGenero7">
-                                            <label for="iGenero7" class="form-label">&nbsp;Fantasia</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero8" id="iGenero8">
-                                            <label for="iGenero8" class="form-label">&nbsp;Terror</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero9" id="iGenero9">
-                                            <label for="iGenero9" class="form-label">&nbsp;Infantil</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero10" id="iGenero10">
-                                            <label for="iGenero10" class="form-label">&nbsp;Suspense</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero11" id="iGenero11">
-                                            <label for="iGenero11" class="form-label">&nbsp;Mistério</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero12" id="iGenero12">
-                                            <label for="iGenero12" class="form-label">&nbsp;Romance</label>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input type="checkbox" name="nGenero13" id="iGenero13">
-                                            <label for="iGenero13" class="form-label">&nbsp;Ficção Ciêntifica</label>
-                                        </div>
-                                    </div>
-                                </div>     
+                                </div> 
                             </div>
                     
                             <div class="modal-footer">

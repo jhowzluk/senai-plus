@@ -6,6 +6,8 @@
     include ('functionSerie.php');
     include ('functionCrudFilme.php');
     include ('functionCrudSerie.php');
+    include ('functionCrudEpisodio.php');
+    include ('functionCrudUsuario.php');
 
     function proximoIdTabela($tabela, $coluna){
 
