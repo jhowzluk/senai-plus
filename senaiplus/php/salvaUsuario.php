@@ -13,6 +13,7 @@
 
     include('conexao.php');
 
+
     if($idUsuario == "0") {
 
         $id = proximoIdTabela("usuarios", "idUsuario");
@@ -34,15 +35,48 @@
 
     } else {
 
-        //update na tabela usuarios 
-        $sql = "UPDATE usuarios "
-            ."SET nome='".$nomeUsuario."', sobrenome='".$sobrenomeUsuario."', telefone='".$telefone."', " 
-            ."cpf='".$cpf."', email='".$email."', senha= MD5('".$senha."'), acessos_idAcesso='".$acesso."' "
-            ."WHERE idUsuario='".$idUsuario."';";
+        $sql1 = "Select senha from usuarios where idUsuario = ".$idUsuario.";";
 
-        $result = mysqli_query($conn,$sql1);   
+        $result = mysqli_query($conn, $sql1);
+
+        if(mysqli_num_rows($result) > 0){
+            $array = array();
+
+            while($linha = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                array_push($array, $linha);
+            }
+            
+            foreach($array as $campo){ 
+                $senBanco = $campo['senha'];
+            }
+            
+        }
+        
+        if($senha == $senBanco) { 
+
+            //update na tabela usuarios 
+            $sql = "UPDATE usuarios "
+                ."SET nome='".$nomeUsuario."', sobrenome='".$sobrenomeUsuario."', telefone='".$telefone."', " 
+                ."cpf='".$cpf."', email='".$email."', senha= '".$senha."', acessos_idAcesso='".$acesso."' "
+                ."WHERE idUsuario='".$idUsuario."';";
+
+            $result = mysqli_query($conn,$sql);   
+
+        } else {
+
+            //update na tabela usuarios 
+            $sql = "UPDATE usuarios "
+                ."SET nome='".$nomeUsuario."', sobrenome='".$sobrenomeUsuario."', telefone='".$telefone."', " 
+                ."cpf='".$cpf."', email='".$email."', senha= MD5('".$senha."'), acessos_idAcesso='".$acesso."' "
+                ."WHERE idUsuario='".$idUsuario."';";
+
+            $result = mysqli_query($conn,$sql);   
+
+        }
 
     }
+
+    mysqli_close($conn);
 
     header('location: ../index.php');
 
