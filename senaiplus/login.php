@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    $_SESSION['logado'] = 0;
+    date_default_timezone_set("America/Sao_Paulo");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,49 +21,53 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-    <div class="global-container">
-        <div class="cardLogin login-form">
-            <div class="card-body">
-                <h3 class="card-title text-center">SENAI+</h3>
-                <div class="card-text">
-                    <!-- <div class="alert alert-danger alert-dismissible fade show" 
-                    role="alert">Incorrect username or password.</div> -->
-                    <form method="POST" action="php/validaAcesso.php">
-                        <!-- to error: add class "has-danger" -->
-                        <div class="form-group">
-                            <label for="iEmailUsuario">Email</label>
-                            <input type="email" class="form-control form-control-sm" id="iEmailUsuario" aria-describedby="emailHelp" name="nEmailUsuario">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label for="iSenhaUsuario">Senha</label>
-                            <input type="password" class="form-control form-control-sm" id="iSenhaUsuario" name="nSenhaUsuario">
-                            <a href="#" style="float:right;font-size:12px;">Esqueci a senha</a>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                        <div class="sign-up">
-                            Não possui uma conta? 
-                            <a href="#">Registrar-se</a>
-                        </div>
-                        
-                        <p>
-                            <h6 id="msgLog">
-                                <?php 
-                                    echo $_SESSION['msgLogin'];
-                                    $_SESSION['msgLogin'] = '';
-                                    session_destroy();
-                                ?>
-                            </h6>
-                        </p>
+        <div class="global-container">
+            <div class="cardLogin login-form">
+                <div class="card-body">
+                    <h3 class="card-title text-center">SENAI+</h3>
+                    <div class="card-text">
+                        <!-- <div class="alert alert-danger alert-dismissible fade show" 
+                        role="alert">Incorrect username or password.</div> -->
+                        <form method="POST" action="php/validaAcesso.php">
+                            <!-- to error: add class "has-danger" -->
+                            <div class="form-group">
+                                <label for="iEmail">Email</label>
+                                <input type="email" class="form-control form-control-sm" id="iEmail" aria-describedby="emailHelp" name="nEmail">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="iSenha">Senha</label>
+                                <input type="password" class="form-control form-control-sm" id="iSenha" name="nSenha">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                            <div class="sign-up">
+                                Não possui uma conta? 
+                                <a href="#">Registrar-se</a>
+                            </div>
+                            
+                        </form>    
 
-                    </form>
+                        <br>
+
+                        <p class="mb-1 text-danger" align="center">
+                            <?php 
+                                if (isset($_SESSION['msg-login'])){
+                                    echo $_SESSION['msg-login'];
+                                    session_destroy();
+                                }
+                            ?>
+                        </p>
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     
-
+        <!-- jQuery -->
+        <script src="app/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="app/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>                   
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

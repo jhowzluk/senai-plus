@@ -35,5 +35,18 @@
         } 
     
         return $id;
-    }   
+    } 
+    
+    function validaUsuario($email, $senha) {
+
+        include("conexao.php");
+        $sql = "SELECT * FROM usuarios "
+            ."WHERE email='".$email."' AND senha= MD5('".$senha."'); ";
+
+        $result = mysqli_query($conn,$sql);
+        mysqli_close($conn);
+
+        return $result;
+
+    }
 ?>
