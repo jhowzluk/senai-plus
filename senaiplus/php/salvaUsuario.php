@@ -44,5 +44,6 @@
 
     }
 
+    header('location: ../index.php');
 
 ?>

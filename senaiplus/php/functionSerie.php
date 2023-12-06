@@ -26,5 +26,5 @@
         }
         
         $lista .= "</select>";
-        return $lista;   
+        return $lista;
     }

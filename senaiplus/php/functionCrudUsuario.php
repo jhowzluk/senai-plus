@@ -70,7 +70,7 @@ function carregaUsuarios(){
                                 .'</div>'
                                 .'<div class="mb-3">'
                                     .'<label for="iEmailUsuario" class="form-label">E-mail</label>'
-                                    .'<input type="date" class="form-control" name="nEmailUsuario" id="iEmailUsuario" value="'.$campo['email'].'">'
+                                    .'<input type="email" class="form-control" name="nEmailUsuario" id="iEmailUsuario" value="'.$campo['email'].'">'
                                 .'</div>'
                                 .'<div class="mb-3">'
                                     .'<label for="iSenhaUsuario" class="form-label">Senha</label>'

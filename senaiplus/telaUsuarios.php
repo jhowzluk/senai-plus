@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="iEmailUsuario" class="form-label">E-mail</label>
-                                    <input type="date" class="form-control" name="nEmailUsuario" id="iEmailUsuario">
+                                    <input type="email" class="form-control" name="nEmailUsuario" id="iEmailUsuario">
                                 </div>
                                 <div class="mb-3">
                                     <label for="iSenhaUsuario" class="form-label">Senha</label>

@@ -38,79 +38,11 @@
                                 <li><a class="dropdown-item" href="telaFilmes.php">Filmes</a></li>
                                 <li><a class="dropdown-item" href="telaSeries.php">Séries</a></li>
                                 <li><a class="dropdown-item" href="telaEpisodios.php">Episódios</a></li>
-                                <li><a class="dropdown-item" href="telaEpisodios.php">Usuários</a></li>
+                                <li><a class="dropdown-item" href="telaUsuarios.php">Usuários</a></li>
                             </ul>
                         </li>
                     </ul>
-
-                    <!-- Modal para cadastrar Episódios -->
-                    <div class="modal fade" id="cadastrarEpisodio" tabindex="-1" aria-labelledby="" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Cadastrar Episódios</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="POST" action="php/salvaEpisodio.php">
-                                        <div class="mb-3">
-                                            <label for="nomeEpisodio" class="form-label">Nome</label>
-                                            <input type="text" class="form-control" id="nomeEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="numEpisodio" class="form-label">Número do episódio</label>
-                                            <input class="form-control" type="number" min=1 id="numEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label">Série</label>
-                                            <?php echo listaSerie(); ?>
-                                        </div> 
-                                        <div class="mb-3">
-                                            <label for="numEpisodio" class="form-label">Número da temporada</label>
-                                            <input class="form-control" type="number" min=1 id="numEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="capaEpisodio" class="form-label">Vídeo do episódio</label>
-                                            <input class="form-control" type="file" id="capaEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="sinopseEpisodio" class="form-label">Sinopse</label>
-                                            <textarea class="form-control" id="sinopseEpisodio" rows="3"></textarea>
-                                        </div>    
-                                        <div class="mb-3">
-                                            <label for="lancamentoEpisodio" class="form-label">Data de lançamento</label>
-                                            <input type="date" class="form-control" id="lancamentoEpisodio">          
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="tempoEpisodio" class="form-label">Duração</label>
-                                            <input type="time" class="form-control" id="tempoEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="diretorEpisodio" class="form-label">Diretor</label>
-                                            <input type="text" class="form-control" id="diretorEpisodio">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="elencoEpisodio" class="form-label">Elenco</label>
-                                            <textarea class="form-control" id="elencoEpisodio" rows="3"></textarea>
-                                        </div> 
-                                </div>
-                                <div class="modal-footer">
-                                    <span class="limparButton"><button type="reset" class="btn btn-secondary">Limpar</button></span>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form class="d-flex">
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+                    
                 </div>
             </div>
         </nav>

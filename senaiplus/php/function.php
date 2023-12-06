@@ -8,6 +8,7 @@
     include ('functionCrudSerie.php');
     include ('functionCrudEpisodio.php');
     include ('functionCrudUsuario.php');
+    include ('functionAcesso.php');
 
     function proximoIdTabela($tabela, $coluna){
 
