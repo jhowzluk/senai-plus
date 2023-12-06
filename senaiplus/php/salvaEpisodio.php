@@ -14,7 +14,7 @@
     $elencoEpisodio = $_POST["nElencoEpisodio"];
     $idEpisodio = $_GET["id"];
 
-    // var_dump($idEpisodio);
+    // var_dump($videoEpisodio);
     // die();
 
     $hora_minuto = explode(":", $tempoEpisodio);

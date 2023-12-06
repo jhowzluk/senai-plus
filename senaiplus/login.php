@@ -18,27 +18,27 @@
     <div class="global-container">
         <div class="cardLogin login-form">
             <div class="card-body">
-                <h3 class="card-title text-center">Login</h3>
+                <h3 class="card-title text-center">SENAI+</h3>
                 <div class="card-text">
                     <!-- <div class="alert alert-danger alert-dismissible fade show" 
                     role="alert">Incorrect username or password.</div> -->
                     <form method="POST" action="php/validaAcesso.php">
                         <!-- to error: add class "has-danger" -->
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" name="nUsuario">
+                            <label for="iEmailUsuario">Email</label>
+                            <input type="email" class="form-control form-control-sm" id="iEmailUsuario" aria-describedby="emailHelp" name="nEmailUsuario">
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Senha</label>
-                            <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" name="nSenha">
+                            <label for="iSenhaUsuario">Senha</label>
+                            <input type="password" class="form-control form-control-sm" id="iSenhaUsuario" name="nSenhaUsuario">
                             <a href="#" style="float:right;font-size:12px;">Esqueci a senha</a>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary btn-block">Entrar</button>
                         <div class="sign-up">
                             Não possui uma conta? 
-                            <a href="https://w3schoolweb.com/bootstraplogin-page/">Registrar-se</a>
+                            <a href="#">Registrar-se</a>
                         </div>
                         
                         <p>

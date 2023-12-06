@@ -2,17 +2,20 @@
     
     session_start();    
 
-    $usuario = stripslashes($_POST["nUsuario"]);
-    $senha = stripslashes($_POST["nSenha"]);
+    $email = stripslashes($_POST["nEmailUsuario"]);
+    $senha = stripslashes($_POST["nSenhaUsuario"]);
 
     $_SESSION['msgLogin'] = '';
 
-    include('../conexaoBD/conexao.php');
+    include('conexao.php');
 
     $sql = "SELECT * "
-           ."FROM usuario "
-           ."WHERE Login = '".$usuario."' "
-           ."AND Senha = md5('".$senha."');";
+           ."FROM usuarios "
+           ."WHERE email = '".$email."' "
+           ."AND senha = md5('".$senha."');";
+
+    var_dump($sql);
+    die();
 
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
@@ -21,53 +24,31 @@
     if(mysqli_num_rows($result) > 0) {
 
         $dados = mysqli_fetch_array($result);
-        $tipoUsuario = $dados['idTipoUsuario'];
-        $ativo = $dados['Ativo'];
+        $tipoUsuario = $dados['acessos_idAcesso'];
 
         switch($tipoUsuario) {
                 case 1:
-
-                    if($ativo == "S"){
-                        header('location: ../../telaAdmin.php');
-                    } else {
-                        $_SESSION['msgLogin'] = 'Usuário inativado.';
-                        header('location: ../../login.php');
-                    }    
+                    
+                    header('location: ../telaCadastrado.php');
 
                     break;
 
                 case 2:
 
-                    if($ativo == "S"){
-                        header('location: ../../telaEmpresa.php');
-                    } else {
-                        $_SESSION['msgLogin'] = 'Usuário inativado.';
-                        header('location: ../../login.php');
-                    }
+                    header('location: ../telaAdmin.php');
                     
                     break;
 
-                case 3:
-
-                    if($ativo == "S"){
-                        header('location: ../../telaComum.php');
-                    } else {
-                        $_SESSION['msgLogin'] = 'Usuário inativado.';
-                        header('location: ../../login.php');
-                    }
-                    
-                    break;
-                
                 default:
                     
                     $_SESSION['msgLogin'] = 'Usuário ou senha incorretos.';
-                    header('location: ../../login.php');
+                    header('location: ../login.php');
         }
 
     }  else  {
 
-        $_SESSION['msgLogin'] = 'Usuário não cadastrado.';
-        header('location: ../../login.php');
+        $_SESSION['msgLogin'] = 'Usuário ou senha incorretos.';
+        header('location: ../login.php');
 
     }
     
